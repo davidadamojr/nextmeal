@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('nextmealApp', ['ionic'])
+angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -16,4 +16,62 @@ angular.module('nextmealApp', ['ionic'])
       StatusBar.styleDefault();
     }
   });
+})
+
+.config(function($stateProvider, $urlRouterProvider){
+	$urlRouterProvider.otherwise('/');
+	
+	$stateProvider
+		.state('firstrun', {
+			url: '/',
+			templateUrl: 'partials/firstrun.html',
+			controller: 'FirstRunCtrl'
+		})
+		
+		.state('firstpreferences', {
+			url: '/firstpreferences',
+			templateUrl: 'partials/firstpreferences.html',
+			controller: 'FirstPrefCtrl'
+		})
+		
+		.state('locations', {
+			url: '/locations',
+			templateUrl: 'partials/locations.html',
+			controller: 'LocationsCtrl'
+		})
+		
+		.state('tabs', {
+			url: '/tabs',
+			templateUrl: 'partials/tabs.html'
+		})
+		
+		.state('tabs.meals', {
+			url: '/meals',
+			views: {
+				meals: {
+					templateUrl: 'partials/meals.html',
+					controller: 'MealsCtrl'
+				}
+			}
+		})
+		
+		.state('tabs.favorites', {
+			url: '/favorites',
+			views: {
+				favorites: {
+					templateUrl: 'partials/favorites.html',
+					controller: 'FavoritesCtrl'
+				}
+			}
+		})
+		
+		.state('tabs.preferences', {
+			url: '/preferences',
+			views: {
+				preferences: {
+					templateUrl: 'partials/preferences.html',
+					controller: 'PrefsCtrl'
+				}
+			}
+		})
 })

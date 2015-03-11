@@ -1,4 +1,4 @@
-.first-run-container {
+.first-run-container, .locations-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -6,7 +6,7 @@
 	height: 20em;
 }
 
-.first-run-content {
+.first-run-content, .locations-content {
 	max-width: 50%;
 	flex: 1;
 }

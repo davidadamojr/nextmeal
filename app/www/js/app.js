@@ -73,5 +73,5 @@ angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers'])
 					controller: 'PrefsCtrl'
 				}
 			}
-		})
-})
+		});
+});

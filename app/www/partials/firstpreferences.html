@@ -1,1 +1,21 @@
-<p>Hello first preferences!</p>
+<ion-header-bar class="bar-positive">
+	<h1 class="title">Diet Preferences</h1>
+</ion-header-bar>
+<ion-content class="has-header">
+	<ion-list ng-repeat="(category, items) in categories">
+		<div class="item item-divider">
+			{{category}}
+		</div>
+		<ion-list>
+			<ion-item ng-repeat="item in items" class="item-checkbox">
+				<label class="checkbox">
+					<input type="checkbox">
+				</label>
+				{{item}}
+			</ion-item>
+		</ion-list>
+	</ion-list>
+	<button class="button button-block button-stable">
+		Save Preferences
+	</button>
+</ion-content>

@@ -5,7 +5,10 @@ angular.module('nextmealApp.controllers', [])
 }])
 
 .controller('FirstPrefCtrl', ['$scope', function($scope){
-
+	$scope.categories = {"Dairy": ["Milk", "Cheese"],
+						 "Meat": ["Pork", "Beef", "Chicken"],
+						 "Nuts": ["Peanuts", "Cashew Nuts", "Walnuts"]
+						};
 }])
 
 .controller('LocationsCtrl', ['$scope', function($scope){

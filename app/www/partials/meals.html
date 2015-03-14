@@ -1,6 +1,6 @@
 <ion-view title="Meals">
 	<ion-nav-buttons side="primary">
-		<button class="button">
+		<button class="button"  ui-sref="locations">
 			Locations
 		</button>
 	</ion-nav-buttons>
@@ -11,23 +11,27 @@
 			</div>
 		
 			<div class="item item-body">
-				<img class="full-image" src="img/southern_fried_chicken.png" />
+				<img class="full-image" src="{{meals[selectedMeal].image}}" />
 				<p>
-					Two crispy, handbreaded, buttermilk fried chicken breasts, pepper cream gravy and white cheddar mashed potatoes with a corn and fire-roasted red pepper succotash.
+					{{meals[selectedMeal].description}}
 				</p>
 				<p>
-					<a href="#" class="subdued">8 votes</a>
+					<a href="#" class="subdued">{{meals[selectedMeal].votes}} vote(s)</a>
 				</p>
 			</div>
 			
 			<div class="item tabs tabs-secondary tabs-icon-left">
-				<a class="tab-item" href="#">
+				<a class="tab-item" ng-click="previous()">
+					<i class="icon ion-skip-backward"></i>
+					Previous
+				</a>
+				<a class="tab-item">
 					<i class="icon ion-thumbsup"></i>
 					Yes
 				</a>
-				<a class="tab-item" href="#">
-					<i class="icon ion-thumbsdown"></i>
-					No
+				<a class="tab-item" href="#" ng-click="nextMeal()">
+					<i class="icon ion-skip-forward"></i>
+					Next
 				</a>
 			</div>
 		</div>

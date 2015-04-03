@@ -1,0 +1,50 @@
+{
+    "auth": {
+        "key": {
+            "param": "key"
+        }
+    },
+    "basePath": "http://localhost:8000",
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "name": "Next Meal",
+    "protocol": "rest",
+    "publicPath": "",
+    "version": "0.0.1",
+    "resources": {
+        "Custom API Methods": {
+            "methods": {
+                "GetRestuarants": {
+                    "description": "This post request returns several google restaurants",
+                    "httpMethod": "POST",
+                    "name": "GetRestuarants",
+                    "parameters": {
+                        "lat": {
+                            "default": "34.187947",
+                            "description": "Latitude",
+                            "location": "form",
+                            "title": "Latitude",
+                            "required": true,
+                            "type": "integer"
+                        }
+                        ,
+                        "long": {
+                            "default": "-79.830992",
+                            "description": "Longitude",
+                            "location": "form",
+                            "required": true,
+                            "type": "integer",
+                            "title": "Longitude"
+                        }
+     
+                    },
+                    "path": "/api_custom/get_near"
+
+                }
+            }
+        }
+
+    }
+
+}

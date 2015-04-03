@@ -26,7 +26,7 @@ This project require several tools. Most are easy to obtain
 	./nextmeal/backend</p>
 	<li><p style="margin-bottom: 0in; line-height: 100%">Run “npm
 	install”</p>
-	<li><p style="margin-bottom: 0in; line-height: 100%">Add file named: configuration.js to ./confige 
+	<li><p style="margin-bottom: 0in; line-height: 100%">Add file named: configuration.js to ./config 
 	The config file should look like this 
 	<pre>
 	// config/database.js

@@ -3,9 +3,12 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers'])
 
-.run(function($ionicPlatform) {
+var db = null;
+
+angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers', 'ngCordova'])
+
+.run(function($ionicPlatform, $cordovaSQLite) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -15,6 +18,9 @@ angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+	
+	db = $cordovaSQLite.openDB("my.db");
+	$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS preferences (id integer primary key, name text, excluded integer)");
   });
 })
 

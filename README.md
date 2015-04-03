@@ -7,6 +7,71 @@ Not even pre-aphla yet
 #Page Last Updated
 4/2/2015
 
+#Project Requirements
+This project require several tools. Most are easy to obtain 
+<ul>
+	<li><a href="https://nodejs.org/">Node Js</a></li>
+	<li><a href="https://www.npmjs.com/">Npm(Usually comes with Node JS</a></li>
+	<li><a href="http://ionicframework.com/getting-started/">Ionic Framework</a></li>
+	<li><a href="https://www.mongodb.org/">MongoDB</a></li>
+
+</ul>
+#Installation and Running 
+<p style="margin-bottom: 0in; line-height: 100%">Backend</p>
+<ol>
+	<li><p style="margin-bottom: 0in; line-height: 100%">Download the
+	Repository 
+	</p>
+	<li><p style="margin-bottom: 0in; line-height: 100%">Navigate to
+	./nextmeal/backend</p>
+	<li><p style="margin-bottom: 0in; line-height: 100%">Run “npm
+	install”</p>
+	<li><p style="margin-bottom: 0in; line-height: 100%">Add file named: configuration.js to ./confige 
+	The config file should look like this 
+	<pre>
+	// config/database.js
+module.exports = {
+    'url' :'mongodb://address/nextmeal' ,
+    'googleApiKey' :'YOUR GOOGLE KEY'
+};
+	</pre>
+	
+	</p>
+
+	<li><p style="margin-bottom: 0in; line-height: 100%">
+	You will need to set up your google public place key and your own mongo db
+	</p>
+	
+	<li><p style="margin-bottom: 0in; line-height: 100%">Run “node
+	app.js”<br>Feel free to use automation engines such as nodemon<br><br>
+	</p>
+</ol>
+<p style="margin-bottom: 0in; line-height: 100%">Backend
+Documentation</p>
+<ol>
+	<li value="1"><p style="margin-bottom: 0in; line-height: 100%">Download
+	the Repository 
+	</p>
+	<li><p style="margin-bottom: 0in; line-height: 100%"><a name="__DdeLink__1_600563462"></a>
+	Navigate to ./nextmeal/api_doc</p>
+	<li><p style="margin-bottom: 0in; line-height: 100%">Run “npm
+	install”</p>
+	<li><p style="margin-bottom: 0in; line-height: 100%">Run “node
+	start”</p>
+	<li><p style="margin-bottom: 0in; line-height: 100%">Open up a
+	browser to the requested port<br><br>
+	</p>
+</ol>
+<p style="margin-bottom: 0in; line-height: 100%">Backend Test</p>
+<ol>
+	<li value="1"><p style="margin-bottom: 0in; line-height: 100%">Download
+	the Repository 
+	</p>
+	<li><p style="margin-bottom: 0in; line-height: 100%"><a name="__DdeLink__1_6005634621"></a>
+	Navigate to ./nextmeal/backend</p>
+	<li><p style="margin-bottom: 0in; line-height: 100%">Run “mocha”<br>If
+	you don't have mocha, run “sudo npm install mocha -g”</p>
+</ol>
 #Current Tasks
 Back-end: Write an api template
 Front-end: ???

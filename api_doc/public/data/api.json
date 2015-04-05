@@ -4,7 +4,7 @@
             "param": "key"
         }
     },
-    "basePath": "http://localhost:8000",
+    "basePath": "http://localhost:3000",
     "headers": {
         "Content-Type": "application/json"
     },
@@ -19,11 +19,13 @@
                     "description": "This post request returns several google restaurants",
                     "httpMethod": "POST",
                     "name": "GetRestuarants",
+					"type": "object",
                     "parameters": {
                         "lat": {
                             "default": "34.187947",
                             "description": "Latitude",
-                            "location": "form",
+                            "location": "body",
+
                             "title": "Latitude",
                             "required": true,
                             "type": "integer"
@@ -32,7 +34,7 @@
                         "long": {
                             "default": "-79.830992",
                             "description": "Longitude",
-                            "location": "form",
+                            "location": "body",
                             "required": true,
                             "type": "integer",
                             "title": "Longitude"
@@ -40,7 +42,7 @@
      
                     },
                     "path": "/api_custom/get_near"
-
+				
                 }
             }
         }

@@ -1,4 +1,4 @@
-backend_ = require('../backend/app')
+//backend_ = require('../backend/app')
 
 // Copyright (c) 2014 Mashery, Inc.
 //
@@ -117,6 +117,10 @@ try {
 }
 
 var app = module.exports = express();
+
+
+
+
 
 app.configure(function() {
     app.set('views', __dirname + '/views');
@@ -1192,6 +1196,13 @@ app.get('/:api([^\.]+)', function(req, res) {
     req.params.api=req.params.api.replace(/\/$/,'');
     res.render('api');
 });
+
+
+//app.use('/',require('../backend/routes/api'))
+app.post('/test',function(req, res, next) {
+	
+	res.send(200,'Backend working')
+})
 
 // Only listen on $ node app.js
 

@@ -1,18 +1,7 @@
 angular.module('nextmealApp.controllers', [])
 
-.controller('FirstRunCtrl', ['$scope', function($scope){
-	$scope.isPreferencesSet = function() {
-		var query = "SELECT id, name, excluded FROM preferences";
-		$cordovaSQLite.execute(db, query, []).then(function(result){
-			if (result.rows.length == 0) {
-				alert("Nothing in the database.");
-			} else {
-				alert("Yay! You've got stuff in the database");
-			}
-		}, function(err) {
-			alert("An error occurred");
-		});
-	}
+.controller('FirstRunCtrl', ['$scope', '$state', '$cordovaSQLite', function($scope, $state, $cordovaSQLite){
+	
 }])
 
 .controller('FirstPrefCtrl', ['$scope', function($scope){

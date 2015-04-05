@@ -8,7 +8,7 @@ var db = null;
 
 angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers', 'ngCordova'])
 
-.run(function($ionicPlatform, $cordovaSQLite) {
+.run(function($ionicPlatform, $cordovaSQLite, $state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -21,6 +21,15 @@ angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers', 'ngCordova'])
 	
 	db = $cordovaSQLite.openDB("my.db");
 	$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS preferences (id integer primary key, name text, excluded integer)");
+	var query = "SELECT id, name, excluded FROM preferences";
+	$cordovaSQLite.execute(db, query, []).then(function(result){
+		if (result.rows.length != 0) {
+			// nothing in the database, so user is running app for the first time and has not set diet preferences
+			$state.go('locations');
+		}
+	}, function(err) {
+		alert("An error occurred");
+	});
   });
 })
 
@@ -32,6 +41,18 @@ angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers', 'ngCordova'])
 			url: '/',
 			templateUrl: 'partials/firstrun.html',
 			controller: 'FirstRunCtrl'
+			/*onEnter: function($cordovaSQLite) {
+				var query = "SELECT id, name, excluded FROM preferences";
+				$cordovaSQLite.execute(db, query, []).then(function(result){
+					if (result.rows.length == 0) {
+						alert("Nothing in the database.");
+					} else {
+						alert("Yay! You've got stuff in the database");
+					}
+				}, function(err) {
+					alert("An error occurred");
+				});
+			}*/
 		})
 		
 		.state('firstpreferences', {

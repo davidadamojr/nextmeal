@@ -1,3 +1,4 @@
+<!--
 # nextmeal
 Nextmeal is a mobile application built using ionic for the client mobile application and node for an  api backend. 
 
@@ -97,3 +98,4 @@ As so called developers, we wanted focus on a several main points
 
 #Development Techniques and Technologies 
 There two main parts this project: the backend and app. The backend will be built using Node js. It will handle the calls between the clients app and retrieving relevant information from google location api and our own foods database. Mongo will be used as our database system. The client mobile application will be built using ionic. It will leverage the gps data to determine the restaurants in the location. Mysql lite library will be used to store information on the user preferences. 
+-->

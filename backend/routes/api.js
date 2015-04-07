@@ -3,12 +3,12 @@ var express = require('express');
 var router = express.Router();
 
 // models
-var Categories = mongoose.model('Categories');
-var MenuItems = mongoose.model('MenuItems');
-var Pictures = mongoose.model('Pictures');
+var Categories = mongoose.model('Category');
+var MenuItems = mongoose.model('MenuItem');
+var Pictures = mongoose.model('Picture');
 // end models
 
-var GooglePlaces = require('google-places');
+/* var GooglePlaces = require('google-places');
 var googlekey = require('../config/configurations').googleApiKey;
 var places = new GooglePlaces(googlekey);
 
@@ -20,11 +20,11 @@ router.post('/get_near', function(req, res, next) {
     }, function(err, response) {
       res.send(200,response.results);
     });
-});
+}); */
 
 // get all the items for the categories model
 router.get('/preferences', function(req, res, next) {
-	Preferences.find(function(err, preferences) {
+	Categories.find(function(err, preferences) {
 		if (err) { return next(err); }
 		
 		res.json(preferences);

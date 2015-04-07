@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
+require('./models/Categories');
+require('./models/MenuItems');
+require('./models/Pictures');
 
 // var routes = require('./routes/index');
 // var users = require('./routes/users');
@@ -29,11 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/', routes);
 //app.use('/users', users);
 
-
 var api= require('./routes/api');
-app.use('/api_custom',api);
-
-
+app.use('/', api);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

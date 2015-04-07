@@ -8,3 +8,5 @@ bower_components/
 nbproject/
 
 data/db
+config/
+npm-debug.log

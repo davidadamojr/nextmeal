@@ -3,12 +3,12 @@
 		<h1 class="title">Diet Preferences</h1>
 	</ion-header-bar>
 	<ion-content class="has-header">
-		<ion-list ng-repeat="(category, items) in categories">
+		<ion-list ng-repeat="category in categories">
 			<div class="item item-divider">
-				{{category}}
+				{{category.name}}
 			</div>
 			<ion-list>
-				<ion-item ng-repeat="item in items" class="item-checkbox">
+				<ion-item ng-repeat="item in category.items" class="item-checkbox">
 					<label class="checkbox">
 						<input type="checkbox" checked>
 					</label>

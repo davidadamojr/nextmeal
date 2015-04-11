@@ -4,11 +4,8 @@ angular.module('nextmealApp.controllers', [])
 	
 }])
 
-.controller('FirstPrefCtrl', ['$scope', function($scope){
-	$scope.categories = {"Dairy": ["Milk", "Cheese"],
-						 "Meat": ["Pork", "Beef", "Chicken"],
-						 "Nuts": ["Peanuts", "Cashew Nuts", "Walnuts"]
-						};
+.controller('FirstPrefCtrl', ['$scope', 'Preferences', function($scope, Preferences){
+	$scope.categories = Preferences.items;
 }])
 
 .controller('LocationsCtrl', ['$scope', function($scope){

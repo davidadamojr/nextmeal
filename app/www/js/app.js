@@ -6,7 +6,7 @@
 
 var db = null;
 
-angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers', 'ngCordova'])
+angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers', 'nextmealApp.services', 'nextmealApp.config', 'ngCordova'])
 
 .run(function($ionicPlatform, $cordovaSQLite, $state) {
   $ionicPlatform.ready(function() {
@@ -33,72 +33,70 @@ angular.module('nextmealApp', ['ionic', 'nextmealApp.controllers', 'ngCordova'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider){
-	$urlRouterProvider.otherwise('/');
-	
-	$stateProvider
-		.state('firstrun', {
-			url: '/',
-			templateUrl: 'partials/firstrun.html',
-			controller: 'FirstRunCtrl'
-			/*onEnter: function($cordovaSQLite) {
-				var query = "SELECT id, name, excluded FROM preferences";
-				$cordovaSQLite.execute(db, query, []).then(function(result){
-					if (result.rows.length == 0) {
-						alert("Nothing in the database.");
-					} else {
-						alert("Yay! You've got stuff in the database");
+.config([
+	'$stateProvider',
+	'$urlRouterProvider',
+	function($stateProvider, $urlRouterProvider){
+		
+		$stateProvider
+			.state('firstrun', {
+				url: '/',
+				templateUrl: 'partials/firstrun.html',
+				controller: 'FirstRunCtrl'
+			})
+			
+			.state('firstpreferences', {
+				url: '/firstpreferences',
+				templateUrl: 'partials/firstpreferences.html',
+				controller: 'FirstPrefCtrl',
+				resolve: {
+					preferencesPromise: ['Preferences', function(Preferences) {
+						return Preferences.get();
+					}]
+				}
+			})
+			
+			.state('locations', {
+				url: '/locations',
+				templateUrl: 'partials/locations.html',
+				controller: 'LocationsCtrl'
+			})
+			
+			.state('tabs', {
+				url: '/tabs',
+				templateUrl: 'partials/tabs.html'
+			})
+			
+			.state('tabs.meals', {
+				url: '/meals',
+				views: {
+					meals: {
+						templateUrl: 'partials/meals.html',
+						controller: 'MealsCtrl'
 					}
-				}, function(err) {
-					alert("An error occurred");
-				});
-			}*/
-		})
-		
-		.state('firstpreferences', {
-			url: '/firstpreferences',
-			templateUrl: 'partials/firstpreferences.html',
-			controller: 'FirstPrefCtrl'
-		})
-		
-		.state('locations', {
-			url: '/locations',
-			templateUrl: 'partials/locations.html',
-			controller: 'LocationsCtrl'
-		})
-		
-		.state('tabs', {
-			url: '/tabs',
-			templateUrl: 'partials/tabs.html'
-		})
-		
-		.state('tabs.meals', {
-			url: '/meals',
-			views: {
-				meals: {
-					templateUrl: 'partials/meals.html',
-					controller: 'MealsCtrl'
 				}
-			}
-		})
-		
-		.state('tabs.favorites', {
-			url: '/favorites',
-			views: {
-				favorites: {
-					templateUrl: 'partials/favorites.html',
-					controller: 'FavoritesCtrl'
+			})
+			
+			.state('tabs.favorites', {
+				url: '/favorites',
+				views: {
+					favorites: {
+						templateUrl: 'partials/favorites.html',
+						controller: 'FavoritesCtrl'
+					}
 				}
-			}
-		})
-		
-		.state('tabs.preferences', {
-			url: '/preferences',
-			views: {
-				preferences: {
-					templateUrl: 'partials/preferences.html',
-					controller: 'PrefsCtrl'
+			})
+			
+			.state('tabs.preferences', {
+				url: '/preferences',
+				views: {
+					preferences: {
+						templateUrl: 'partials/preferences.html',
+						controller: 'PrefsCtrl'
+					}
 				}
-			}
-		});
-});
+			});
+			
+		$urlRouterProvider.otherwise('/');
+	}
+]);

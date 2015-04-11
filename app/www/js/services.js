@@ -1,11 +1,11 @@
 angular.module('nextmealApp.services', [])
 
-.factory('Preferences', ['$http', function($http){
+.factory('Preferences', ['$http', 'apiBaseUrl', function($http, apiBaseUrl){
 	var preferences = {
 		items: []
 	};
 	preferences.get = function(){
-		return $http.get('/preferences').success(function(data) {
+		return $http.get(apiBaseUrl + '/preferences').success(function(data) {
 			angular.copy(data, preferences.items);
 		}).error(function(data, status) {
 			alert("There was an error retrieving your preferences.");

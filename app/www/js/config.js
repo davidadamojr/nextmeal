@@ -1,3 +1,3 @@
 angular.module('nextmealApp.config', [])
 
-.value('apiBaseUrl', 'http://localhost:8100');
+.value('apiBaseUrl', 'http://localhost:8000');
